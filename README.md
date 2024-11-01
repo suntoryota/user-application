@@ -1,5 +1,3 @@
-Akan saya susun semuanya dalam format readme.md:
-
 ```markdown
 # User Management System
 
