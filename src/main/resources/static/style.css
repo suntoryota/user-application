@@ -1,0 +1,105 @@
+/* List view styles */
+.list-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.list-view .toolbar {
+    padding: var(--lumo-space-m);
+    background-color: var(--lumo-base-color);
+    border-radius: var(--lumo-border-radius);
+    box-shadow: var(--lumo-box-shadow-xs);
+    gap: var(--lumo-space-m);
+}
+
+.list-view .content {
+    flex: 1;
+    display: flex;
+    gap: var(--lumo-space-m);
+}
+
+/* Grid styles */
+.user-grid {
+    border-radius: var(--lumo-border-radius);
+    box-shadow: var(--lumo-box-shadow-xs);
+}
+
+/* Status badge styles */
+.badge {
+    padding: var(--lumo-space-xs) var(--lumo-space-s);
+    border-radius: var(--lumo-border-radius-m);
+    font-size: var(--lumo-font-size-s);
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.badge.success {
+    background-color: var(--lumo-success-color-10pct);
+    color: var(--lumo-success-text-color);
+}
+
+.badge.error {
+    background-color: var(--lumo-error-color-10pct);
+    color: var(--lumo-error-text-color);
+}
+
+.badge.contrast {
+    background-color: var(--lumo-contrast-10pct);
+    color: var(--lumo-secondary-text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .list-view .content {
+        flex-direction: column;
+    }
+
+    .user-form {
+        width: 100%;
+    }
+}
+
+/* Dialog styles */
+vaadin-dialog-overlay::part(overlay) {
+    padding: var(--lumo-space-m);
+}
+
+vaadin-dialog-overlay h3 {
+    margin-top: 0;
+    margin-bottom: var(--lumo-space-m);
+}
+
+vaadin-dialog-overlay .buttons {
+    margin-top: var(--lumo-space-m);
+    padding-top: var(--lumo-space-m);
+    border-top: 1px solid var(--lumo-contrast-10pct);
+}
+
+/* Download button styles */
+vaadin-dialog-overlay vaadin-button {
+    margin: var(--lumo-space-s);
+}
+
+/* Export button styles */
+.toolbar vaadin-button {
+    margin-left: var(--lumo-space-s);
+}
+
+/* Welcome message styles */
+.welcome-container {
+    text-align: center;
+    padding: var(--lumo-space-xl);
+}
+
+.welcome-title {
+    color: var(--lumo-primary-text-color);
+    margin-bottom: 0;
+}
+
+.welcome-hint {
+    color: var(--lumo-secondary-text-color);
+    font-style: italic;
+    margin-top: var(--lumo-space-m);
+}
