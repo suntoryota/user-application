@@ -92,7 +92,7 @@ src/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/user-management-system.git
+git clone https://github.com/suntoryota/user-application
 ```
 
 2. Navigate to project directory:
@@ -253,5 +253,3 @@ VALUES
 - Username: `sa`
 - Password: ` ` 
 
-
-# user-application
