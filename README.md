@@ -4,8 +4,8 @@
 A Spring Boot application with Vaadin UI for managing users and generating reports.
 
 ## Technologies Used
-- Spring Boot 3.x
-- Vaadin 24.x
+- Spring Boot 3.2
+- Vaadin 24.3
 - JasperReports
 - H2 Database
 - ModelMapper
@@ -88,24 +88,111 @@ src/
         └── com/example/demo/
             └── service/
                 └── UserServiceTest.java
+
+Saya akan tambahkan dokumentasi error codes:
+
+```markdown
+## API Documentation
+
+### Base URL
+```
+http://localhost:8080/user/api/v1
+```
+
+### REST Endpoints (Controller)
+
+#### User Management
+| Method | URL          | Description           |
+|--------|-----         |-------------          |
+| GET    | /users       | Get all users         |
+| GET    | /users/{id}  | Get user by ID        |
+| POST   | /users       | Create new user       |
+| PUT    | /users/{id}  | Update user           |
+| DELETE | /users/{id}  | Delete user           |
+
+### Service Layer Features
+
+#### Report Service
+Report generation diimplementasikan di service layer (`ReportService`) dan hanya diakses melalui Vaadin UI:
+- `generateUserReport()`: Generate PDF report
+- `generateUserExcelReport()`: Generate Excel report
+
+Download report hanya tersedia melalui UI interface dengan memanfaatkan ReportService.
+
+### Response Format
+
+#### Success Response
+```json
+{
+    "code": 200,
+    "status": "Success",
+    "message": "Success",
+    "data": {
+        // Response data
+    }
+}
+```
+
+#### Error Response
+```json
+{
+    "code": 404,
+    "status": "Error",
+    "message": "User not found",
+    "data": null
+}
+```
+
+### Error Codes
+| Code | Status | Message | Description                                |
+|------|---------|---------|--------------------------------------------|
+| 404 | Error | User not found | User dengan ID tersebut tidak ditemukan    |
+| 409 | Error | Email already exists | Email sudah digunakan user lain            |
+| 400 | Error | Validation error | Input tidak sesuai validasi                |
+| 500 | Error | System error | Terjadi kesalahan sistem                   |
+
+### Sample Request & Response
+
+#### Create/Update User Request
+```json
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+1234567890",
+    "status": "ACTIVE"
+}
+```
+
+### Validation Rules
+- firstName: 2-50 characters, letters only
+- lastName: 2-50 characters, letters only
+- email: Valid format, unique
+- phoneNumber: 10-15 digits (optional)
+- status: ACTIVE, INACTIVE, or BLOCKED
+```
+
 ## Setup & Installation
 
 1. Clone the repository:
-```bash
+
 git clone https://github.com/suntoryota/user-application
 ```
 
 2. Navigate to project directory:
-   Open terminal/command prompt dan masuk ke folder project:
-```bash
-cd user-management-system
+
+Open terminal/command prompt dan masuk ke folder project:
+
+cd demo
 ```
 Atau buka project menggunakan IDE (IntelliJ IDEA/Eclipse):
-- File -> Open -> Pilih folder "user-management-system"
+
+- File -> Open -> Pilih folder "demo"
 
 3. Build the project:
-   Menggunakan terminal di root project:
-```bash
+
+Menggunakan terminal di root project:
+
 mvn clean install
 ```
 Atau menggunakan IDE:
@@ -123,7 +210,7 @@ Atau menggunakan IDE:
 
 5. Access the application:
    Buka browser dan akses:
-   `http://localhost:8080/user`
+   `http://localhost:8080/usewr`
 
 ## Configuration Files
 
